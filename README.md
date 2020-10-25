@@ -1,4 +1,4 @@
-Contentfull Demo -- Contentful Content Delivery API Provider Data Preview
+Contentfull Demo - Contentful Content Delivery API Provider Data Preview
 =====================================
 
 Grab the data from Contentful and display that on one page.
@@ -31,16 +31,19 @@ $ yarn install
 ```
 
 4. Set contentful API credentials(make sure you have `master.key`)
+
 ```
 $ rails credentials:edit
 ```
 
 5. Database setup
+
 ```console
 $ rake db:setup
 ```
 
 6. Start local dev server
+
 ```
 $ foreman s
   * Running on http://localhost:5000/
@@ -55,7 +58,7 @@ $ foreman s
 -   [x] View data on UI
 -   [x] Internalization of view part
 -   [x] Webpack Production Tweaks for heroku
--   [x] deploy the application on heroku
+-   [x] Deploy the application on heroku
 -   [x] Documentation of the project
 -   [ ] Add swagger for Open mobile API documentation
 -   [ ] Add Rspec with VCR to test the API and response
