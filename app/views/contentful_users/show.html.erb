@@ -1,0 +1,53 @@
+<div class="container">
+  	<h1>Receipes</h1>
+  
+  <% @contentful_user.render.each_with_index do |recipe, index| %>
+	  <div id="accordion">
+	  	<div class="card">
+	  		<div class="card-header">
+	  			<div class="col-md-12">
+  					<h6><%= label(:recipe, :title, "#{t 'contentful_users.title'}") %>
+		    		<%= recipe.title %></h6>
+			   	</div>
+	   			<div class="col-md-12">
+		   			<%= render partial: 'shared/common_fields', locals: { recipe: recipe } %>
+		   			<%= link_to "#{t 'contentful_users.detail'}", "#recipe-number-#{index}", data: { toggle: :collapse }, class: 'card-link' %>
+	     		</div>
+			    
+				  <div id="recipe-number-<%= index %>" class='collapse' data-parent='#accordion'>
+				    <div class='card-body'>
+				   		<table class="recipe-table">
+								<tr>
+									<th><%= label(:recipe, :title, "#{t 'contentful_users.title'}") %></th>
+									<th><%= label(:recipe, :photo, "#{t 'contentful_users.photo'}") %></th>
+									<th><%= label(:recipe, :tags, "#{t 'contentful_users.tags'}") %></th>
+									<th><%= label(:recipe, :description, "#{t 'contentful_users.description'}") %></th>
+									<th><%= label(:recipe, :chef, "#{t 'contentful_users.chef'}") %></th>
+									<th><%= label(:recipe, :calories, "#{t 'contentful_users.calories'}") %></th>
+								</tr>
+								<tr>
+									<td><%= recipe.title %></td>
+									<td>
+										<%= render partial: 'shared/common_fields', locals: { recipe: recipe } %>
+									</td>
+									<td>
+										<% unless recipe.tags.blank? %>
+					   					<%= recipe.tags.map(&:name).join(', ') %>
+						   			<% end %>
+									</td>
+									<td><%= "#{recipe.description.slice(0, 80)}..." %></td>
+									<td>
+										<% unless recipe.chef.blank? %>
+						   				<%= recipe.chef.name %>
+						   			<% end %>
+									</td>
+									<td><%= recipe.calories %></td>
+								</tr>
+							</table>
+				  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  <% end %>
+</div>

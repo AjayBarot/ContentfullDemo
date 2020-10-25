@@ -1,0 +1,14 @@
+.recipe-table {
+	table {
+		border: 1px solid black;
+		width: 100%;
+	}
+	td {
+		text-align: left;
+		padding: 8px;
+	}
+	th {
+		background-color: #4CAF50;
+		color: white;
+	}
+}
